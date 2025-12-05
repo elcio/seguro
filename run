@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cd $(dirname $0)
+
+python -m venv .venv
+source .venv/bin/activate
+
+python -m ensurepip
+python -m pip install -r requirements.txt
+
+if [ "$1" == "dev" ]; then
+  flask run --debug
+else
+  gunicorn -w 4 app:app
+fi
