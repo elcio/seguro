@@ -14,4 +14,4 @@ def index():
     cursor = mydb.cursor()
     cursor.execute("SELECT * FROM pessoa")
     results = [{'id': d[0], 'nome': d[1]} for d in cursor.fetchall()]
-    return {"pessoas": results}
+    return {"result": results}
