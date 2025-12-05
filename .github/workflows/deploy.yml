@@ -6,6 +6,13 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      SSHKEY: ${{ secrets.SSHKEY }}
     steps:
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSHKEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
       - name: run deploy
         run: ssh -o "StrictHostKeyChecking no" seguro@seguro.elcio.com.br ./deploy.sh seguro
