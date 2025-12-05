@@ -16,3 +16,5 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
       - name: run deploy
         run: ssh -o "StrictHostKeyChecking no" seguro@seguro.elcio.com.br ./deploy.sh seguro
+      - name: restart service
+        run: ssh -o "StrictHostKeyChecking no" seguro@seguro.elcio.com.br sudo /usr/local/bin/deploy_seguro.sh
