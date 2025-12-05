@@ -1,0 +1,11 @@
+name: deploy_prod
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run deploy
+        run: ssh seguro@seguro.elcio.com.br ./deploy.sh seguro
