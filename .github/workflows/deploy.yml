@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run deploy
-        run: ssh seguro@seguro.elcio.com.br ./deploy.sh seguro
+        run: ssh -o "StrictHostKeyChecking no" seguro@seguro.elcio.com.br ./deploy.sh seguro
